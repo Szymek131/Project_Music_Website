@@ -1,0 +1,32 @@
+h1 {
+  font-size: 92px;
+  font-weight: $font-black;
+  text-transform: uppercase;
+  color: $color-light;
+  font-family: $font-source;
+  margin: 0;
+  text-align: center;
+  letter-spacing: 0.75em;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: $font-semibold;
+  text-transform: uppercase;
+  color: $color-light;
+  font-family: $font-source;
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px 0;
+  line-height: 2.5em;
+}
+
+@media screen and (max-width: 767px){
+  h1{
+    font-size: 48px;
+  }
+  
+  h2{
+    font-size: 14px;
+  }
+}
