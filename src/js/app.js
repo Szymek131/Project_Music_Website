@@ -1,5 +1,6 @@
 import { settings, select, classNames } from './settings.js';
 import Song from './components/Song.js';
+import homeCategoryWidget from './components/HomeCategoryWidget.js';
 
 const app = {
 
@@ -66,7 +67,6 @@ const app = {
       .then(function(parsedResponse){
         thisApp.songs = [];
         thisApp.songs = parsedResponse;
-        console.log(thisApp.discoverSongs);
         thisApp.initHome();
         thisApp.initSearch();
         thisApp.initDiscovery();
@@ -76,9 +76,28 @@ const app = {
   initHome: function(){
     const thisApp = this;
 
+    const categoriesContainer = document.querySelector(select.containerOf.categoriesContainer);
     for(let song of thisApp.songs){
       new Song(select.containerOf.home, song);
     }
+
+    const songElement = document.querySelectorAll(select.containerOf.song);
+    console.log(songElement);
+    categoriesContainer.addEventListener('click', function(event){
+      event.preventDefault();
+      const id = event.target.getAttribute('id');
+      console.log(id);
+      for(let song of thisApp.songs){
+        for(let category of song.categories){
+          if(id == category){
+            for(let element of songElement){
+              element.classList.toggle(classNames.songs.active);
+            }
+          }
+        }
+      }
+    });
+
   },
 
   initSearch: function(){
@@ -99,11 +118,16 @@ const app = {
 
   },
 
+  initWidgets: function(){
+    new homeCategoryWidget(select.containerOf.home);
+  },
+
   init: function(){
     const thisApp = this;
     console.log('App starting');
     thisApp.initPages();
     thisApp.initSongs();
+    thisApp.initWidgets();
   },
 };
 

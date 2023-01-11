@@ -1,6 +1,7 @@
 export const select = {
   templateOf: {
     song: '#template-song',
+    homeCategoryWidget: '#template-home-category-widget',
   },
 
   containerOf: {
@@ -8,6 +9,8 @@ export const select = {
     search: '.search',
     discover: '.discover',
     pages: '#pages',
+    categoriesContainer: '.home-category-container',
+    song: '.song-container',
   },
 
   nav: {
@@ -22,6 +25,9 @@ export const classNames = {
   pages: {
     active: 'active',
   },
+  songs: {
+    active: 'active',
+  }
 };
 
 export const settings = {
@@ -33,4 +39,5 @@ export const settings = {
 
 export const templates = {
   singleSong: Handlebars.compile(document.querySelector(select.templateOf.song).innerHTML),
+  homeCategoryWidget: Handlebars.compile(document.querySelector(select.templateOf.homeCategoryWidget).innerHTML),
 };

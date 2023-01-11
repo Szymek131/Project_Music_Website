@@ -1,0 +1,20 @@
+.home-category-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.categories-label{
+  color: $color-light;
+  margin-right: 10px;
+}
+
+.category-link{
+  color: $color-light;
+  padding: 5px;
+
+  &:hover{
+    color: $color-main;
+  }
+}

@@ -4,8 +4,6 @@ import utils from '../utils.js';
 class Song{
   constructor(element, songData){
     const thisSong = this;
-
-    thisSong.songData = songData.id;
   
     const generatedHTML = templates.singleSong(songData);
     thisSong.element = utils.createDOMFromHTML(generatedHTML);
