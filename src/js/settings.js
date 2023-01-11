@@ -26,7 +26,7 @@ export const classNames = {
     active: 'active',
   },
   songs: {
-    active: 'active',
+    hidden: 'hidden',
   }
 };
 

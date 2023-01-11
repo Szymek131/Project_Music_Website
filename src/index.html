@@ -54,7 +54,7 @@
   </script>
 
   <script id="template-song" type="text/x-handlebars-template">
-    <div class="song-container">
+    <div id="song-template" class="song-container {{#each categories}} {{ this }} {{/each}}">
       <div class="song-title">
         <h3>{{ title }}</h3>
       </div>
@@ -64,7 +64,11 @@
         </audio>
       </div>
       <div class="song-description">
-        <p>Categories: {{ categories }}</p>
+        <p>Categories: 
+          {{#each categories}}
+          {{{ this }}}
+          {{/each}}
+        </p>
         <p>#{{ ranking }} in the ranking</p>
       </div>
     </div> 

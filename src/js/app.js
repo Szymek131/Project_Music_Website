@@ -87,17 +87,16 @@ const app = {
       event.preventDefault();
       const id = event.target.getAttribute('id');
       console.log(id);
-      for(let song of thisApp.songs){
-        for(let category of song.categories){
-          if(id == category){
-            for(let element of songElement){
-              element.classList.toggle(classNames.songs.active);
-            }
-          }
+
+      for(let element of songElement){
+        console.log(element);
+        if(!element.classList.contains(id)){
+          element.classList.add(classNames.songs.hidden);
+        } else {
+          element.classList.remove(classNames.songs.hidden);
         }
       }
     });
-
   },
 
   initSearch: function(){
