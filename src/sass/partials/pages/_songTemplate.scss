@@ -1,0 +1,25 @@
+.song-title{
+  text-align: center;
+  color: $color-light;
+  font-family: $font-source;
+  font-weight: $font-semibold;
+}
+
+.song-audio{
+  display: flex;
+  justify-content: center;
+}
+
+.song-description{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.song-description > p {
+  font-size: 14px;
+  margin: 15px 20px;
+  font-weight: $font-regular;
+  font-family: $font-source;
+  color: $color-light-grey;
+}

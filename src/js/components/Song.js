@@ -1,12 +1,16 @@
+import { templates } from '../settings.js';
+import utils from '../utils.js';
+
 class Song{
-  constructor(element){
+  constructor(element, songData){
     const thisSong = this;
 
-    thisSong.render(element);
-  }
-
-  render(element){
-
+    thisSong.songData = songData.id;
+  
+    const generatedHTML = templates.singleSong(songData);
+    thisSong.element = utils.createDOMFromHTML(generatedHTML);
+    const songElement = document.querySelector(element);
+    songElement.appendChild(thisSong.element).innerHTML;
   }
 }
 

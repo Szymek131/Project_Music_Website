@@ -1,3 +1,13 @@
+#pages {
+  > * {
+    display: none;
+  }
+
+  > .active {
+    display: block;
+  }
+}
+
 .header {
   background-image: linear-gradient(rgba($color-dark,0),rgba($color-dark,1.2)), url(../../../images/background.jpg);
   background-size: cover;
