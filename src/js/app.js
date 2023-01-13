@@ -1,6 +1,7 @@
 import { settings, select, classNames } from './settings.js';
+import CategoryFilterWidget from './components/CategoryFilterWidget.js';
 import Song from './components/Song.js';
-import homeCategoryWidget from './components/HomeCategoryWidget.js';
+import Home from './components/Home.js';
 
 const app = {
 
@@ -67,41 +68,54 @@ const app = {
       .then(function(parsedResponse){
         thisApp.songs = [];
         thisApp.songs = parsedResponse;
-        thisApp.initHome();
+        thisApp.initWidgets();
         thisApp.initSearch();
         thisApp.initDiscovery();
       });
   },
 
-  initHome: function(){
+  initWidgets: function(){
     const thisApp = this;
-
-    const categoriesContainer = document.querySelector(select.containerOf.categoriesContainer);
+    // const categoriesContainer = document.querySelector(select.containerOf.categoriesContainer);
     for(let song of thisApp.songs){
       new Song(select.containerOf.home, song);
     }
+    new CategoryFilterWidget();
+    //const songElement = document.querySelectorAll(select.containerOf.song);
+    //console.log(songElement);
+    // categoriesContainer.addEventListener('click', function(event){
+    //   event.preventDefault();
+    //   const id = event.target.getAttribute('id');
+    //   console.log(id);
 
-    const songElement = document.querySelectorAll(select.containerOf.song);
-    console.log(songElement);
-    categoriesContainer.addEventListener('click', function(event){
-      event.preventDefault();
-      const id = event.target.getAttribute('id');
-      console.log(id);
+    //   const categoryLinks = document.querySelectorAll(select.containerOf.categoryLink);
+    //   console.log(categoryLinks);
 
-      for(let element of songElement){
-        console.log(element);
-        if(!element.classList.contains(id)){
-          element.classList.add(classNames.songs.hidden);
-        } else {
-          element.classList.remove(classNames.songs.hidden);
-        }
-      }
-    });
+    //   for(let element of songElement){
+    //     console.log(element);
+    //     if(!element.classList.contains(id)){
+    //       element.classList.add(classNames.songs.hidden);
+    //     } else {
+    //       element.classList.remove(classNames.songs.hidden);
+    //     }
+    //   }
+
+    //   if(!event.target.classList.contains(classNames.links.active)){
+    //     for(let link of categoryLinks){
+    //       link.classList.remove(classNames.links.active);
+    //     }
+    //     event.target.classList.add(classNames.links.active);
+    //   } else {
+    //     for(let element of songElement){
+    //       event.target.classList.remove(classNames.links.active);
+    //       element.classList.remove(classNames.songs.hidden);
+    //     }
+    //   }
+    // });
   },
 
   initSearch: function(){
     const thisApp = this;
-
     for(let song of thisApp.songs){
       
       if(song.title == 'At The Top'){
@@ -117,8 +131,8 @@ const app = {
 
   },
 
-  initWidgets: function(){
-    new homeCategoryWidget(select.containerOf.home);
+  initHome: function(){
+    new Home(select.containerOf.home);
   },
 
   init: function(){
@@ -126,7 +140,7 @@ const app = {
     console.log('App starting');
     thisApp.initPages();
     thisApp.initSongs();
-    thisApp.initWidgets();
+    thisApp.initHome();
   },
 };
 

@@ -11,6 +11,7 @@ export const select = {
     pages: '#pages',
     categoriesContainer: '.home-category-container',
     song: '.song-container',
+    categoryLink: '.category-link',
   },
 
   nav: {
@@ -27,6 +28,10 @@ export const classNames = {
   },
   songs: {
     hidden: 'hidden',
+  },
+  links: {
+    active: 'active',
+    categoryLink: 'category-link',
   }
 };
 
