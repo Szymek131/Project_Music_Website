@@ -7,8 +7,8 @@
   <title>Taste The Music</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/css/green-audio-player.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -63,7 +63,7 @@
         <h3>{{ title }}</h3>
       </div>
       <div class="song-audio">
-        <audio controls autoplay>
+        <audio controls autoplay  class="player">
           <source src="./songs/{{ filename }}" type="audio/ogg">
         </audio>
       </div>

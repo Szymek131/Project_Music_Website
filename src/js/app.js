@@ -3,6 +3,7 @@ import CategoryFilterWidget from './components/CategoryFilterWidget.js';
 import Song from './components/Song.js';
 import Home from './components/Home.js';
 
+
 const app = {
 
   initPages: function(){
@@ -76,42 +77,10 @@ const app = {
 
   initWidgets: function(){
     const thisApp = this;
-    // const categoriesContainer = document.querySelector(select.containerOf.categoriesContainer);
     for(let song of thisApp.songs){
       new Song(select.containerOf.home, song);
     }
     new CategoryFilterWidget();
-    //const songElement = document.querySelectorAll(select.containerOf.song);
-    //console.log(songElement);
-    // categoriesContainer.addEventListener('click', function(event){
-    //   event.preventDefault();
-    //   const id = event.target.getAttribute('id');
-    //   console.log(id);
-
-    //   const categoryLinks = document.querySelectorAll(select.containerOf.categoryLink);
-    //   console.log(categoryLinks);
-
-    //   for(let element of songElement){
-    //     console.log(element);
-    //     if(!element.classList.contains(id)){
-    //       element.classList.add(classNames.songs.hidden);
-    //     } else {
-    //       element.classList.remove(classNames.songs.hidden);
-    //     }
-    //   }
-
-    //   if(!event.target.classList.contains(classNames.links.active)){
-    //     for(let link of categoryLinks){
-    //       link.classList.remove(classNames.links.active);
-    //     }
-    //     event.target.classList.add(classNames.links.active);
-    //   } else {
-    //     for(let element of songElement){
-    //       event.target.classList.remove(classNames.links.active);
-    //       element.classList.remove(classNames.songs.hidden);
-    //     }
-    //   }
-    // });
   },
 
   initSearch: function(){
@@ -126,13 +95,12 @@ const app = {
 
   initDiscovery: function(){
     const thisApp = this;
-    
     new Song(select.containerOf.discover, thisApp.songs[Math.floor(Math.random()*thisApp.songs.length)]);
-
   },
 
   initHome: function(){
     new Home(select.containerOf.home);
+    new GreenAudioPlayer('.gap-example');
   },
 
   init: function(){
