@@ -47,13 +47,44 @@
         <h4 class="categories-label">Categories</h4>
       </div>
       <div>
-        <a class="category-link" id="Powerful">Powerful</a>
-        <a class="category-link" id="Mystery">Mystery</a>
-        <a class="category-link" id="Relax">Relax</a>
-        <a class="category-link" id="Fun">Fun</a>
-        <a class="category-link" id="Western">Western</a>
-        <a class="category-link" id="Insomnia">Insomnia</a>
+        {{#each categories}}
+        <a class="category-link" id="{{{ this }}}">{{{ this }}}</a> 
+        {{/each}}
       </div>
+    </div>
+  </script>
+
+  <script id ="template-search-widget" type="text/x-handlebars-template">
+    <div class="search-widget-container">
+        <div class="search-widget-label">
+          <h4 class="search-label">Search&nbsp;</h4>
+        </div>
+        <div class="search-widget-input-container">
+          <div class="search-widget-name">
+            <div class="search-input-label">
+              <p>Name</p>
+            </div>
+            <div class="search-input">
+              <input type="text" id="search-input">
+            </div>
+          </div>
+          <div class="search-widget-category">
+            <div class="search-select-label">
+              <p>Category</p>
+            </div>
+            <div class="search-select"> 
+              <select name="categories" id="categories" class="categories-select">
+                <option value=""></option>
+                {{#each categories}}
+                <option value="{{ this }}">{{ this }}</option>
+                {{/each}}
+              </select>
+            </div> 
+          </div>
+        </div>
+        <div class="search-submit-container">
+          <button type="submit" class="search-btn">Search</button>
+        </div>
     </div>
   </script>
 
@@ -62,8 +93,8 @@
       <div class="song-title">
         <h3>{{ title }}</h3>
       </div>
-      <div class="song-audio">
-        <audio controls autoplay  class="player">
+      <div class="player">
+        <audio controls autoplay>
           <source src="./songs/{{ filename }}" type="audio/ogg">
         </audio>
       </div>

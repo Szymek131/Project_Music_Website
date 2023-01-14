@@ -1,5 +1,5 @@
 h1 {
-  font-size: 92px;
+  font-size: 102px;
   font-weight: $font-black;
   text-transform: uppercase;
   color: $color-light;
@@ -10,7 +10,7 @@ h1 {
 }
 
 h2 {
-  font-size: 18px;
+  font-size: 26px;
   font-weight: $font-semibold;
   text-transform: uppercase;
   color: $color-light;
@@ -21,12 +21,43 @@ h2 {
   line-height: 2.5em;
 }
 
+.search-btn{
+  padding: 10px 20px;
+  background-color: $color-main;
+  border: 2px solid $color-dark;
+  border-radius: 5px;
+  color: $color-light;
+  font-family: $font-source;
+  font-weight: $font-semibold;
+  text-transform: uppercase;
+  transition: 1.2s;
+  cursor: pointer;
+    
+    &:hover{
+      scale: 1.1;
+    }
+}
+
+h4 {
+  margin: 0;
+}
+
 @media screen and (max-width: 767px){
+  h1{
+    font-size: 56px;
+  }
+  
+  h2{
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 424px){
   h1{
     font-size: 48px;
   }
   
   h2{
-    font-size: 14px;
+    font-size: 18px;
   }
 }

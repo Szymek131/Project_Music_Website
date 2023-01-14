@@ -5,9 +5,12 @@
   font-weight: $font-semibold;
 }
 
-.song-audio{
+.song-container{
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  padding: 10px;
 }
 
 .song-description{
@@ -26,4 +29,18 @@
 
 .hidden {
   display: none;
+}
+
+.green-audio-player .slider .gap-progress .pin{
+  background-color: $color-main;
+}
+
+audio{
+  display: none;
+}
+
+@media screen and (max-width: 425px){
+  .green-audio-player{
+    max-width: fit-content;
+  }
 }

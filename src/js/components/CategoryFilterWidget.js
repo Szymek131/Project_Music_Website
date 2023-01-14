@@ -17,7 +17,6 @@ class CategoryFilterWidget {
       
       if(event.target.classList.contains(classNames.links.categoryLink)){
         for(let element of songElement){
-          console.log(element);
           if(!element.classList.contains(id)){
             element.classList.add(classNames.songs.hidden);
           } else {

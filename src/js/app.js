@@ -2,6 +2,7 @@ import { settings, select, classNames } from './settings.js';
 import CategoryFilterWidget from './components/CategoryFilterWidget.js';
 import Song from './components/Song.js';
 import Home from './components/Home.js';
+import Search from './components/Search.js';
 
 
 const app = {
@@ -57,11 +58,13 @@ const app = {
   initSongs: function(){
     const thisApp = this;
 
-    thisApp.songs = {};
-
     const url = settings.db.url + '/' + settings.db.songs;
     console.log(url);
 
+    thisApp.data = {
+      categories: [],
+    };
+    
     fetch(url)
       .then(function(rawResponse){
         return rawResponse.json();
@@ -69,13 +72,27 @@ const app = {
       .then(function(parsedResponse){
         thisApp.songs = [];
         thisApp.songs = parsedResponse;
-        thisApp.initWidgets();
+        thisApp.data.song = parsedResponse;
+        console.log(thisApp.data);
+
+        for(let song of thisApp.songs){
+          for(let category of song.categories){
+            if(!thisApp.data.categories.includes(category)){
+              thisApp.data.categories.push(category);
+            }
+            console.log(thisApp.data.categories);
+          }
+        }
+        thisApp.initHome();
         thisApp.initSearch();
-        thisApp.initDiscovery();
+        thisApp.initHomeSongs();
+        thisApp.initSearchSongs();
+        thisApp.initDiscoverySongs();
+        thisApp.initGreenAudioPlayer();
       });
   },
 
-  initWidgets: function(){
+  initHomeSongs: function(){
     const thisApp = this;
     for(let song of thisApp.songs){
       new Song(select.containerOf.home, song);
@@ -83,7 +100,7 @@ const app = {
     new CategoryFilterWidget();
   },
 
-  initSearch: function(){
+  initSearchSongs: function(){
     const thisApp = this;
     for(let song of thisApp.songs){
       
@@ -93,14 +110,28 @@ const app = {
     }
   },
 
-  initDiscovery: function(){
+  initDiscoverySongs: function(){
     const thisApp = this;
     new Song(select.containerOf.discover, thisApp.songs[Math.floor(Math.random()*thisApp.songs.length)]);
   },
 
   initHome: function(){
-    new Home(select.containerOf.home);
-    new GreenAudioPlayer('.gap-example');
+    const thisApp = this;
+    new Home(thisApp.data);
+    console.log(thisApp.data);
+  },
+
+  initSearch: function(){
+    const thisApp = this;
+    new Search(thisApp.data);
+  },
+
+  initGreenAudioPlayer: function(){
+    // eslint-disable-next-line no-undef
+    GreenAudioPlayer.init({
+      selector: '.player', // inits Green Audio Player on each audio container that has class "player"
+      stopOthersOnPlay: true
+    });
   },
 
   init: function(){
@@ -108,7 +139,6 @@ const app = {
     console.log('App starting');
     thisApp.initPages();
     thisApp.initSongs();
-    thisApp.initHome();
   },
 };
 

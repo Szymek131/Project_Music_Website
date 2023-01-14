@@ -8,11 +8,6 @@ class Song{
     thisSong.element = utils.createDOMFromHTML(generatedHTML);
     const songElement = document.querySelector(element);
     songElement.appendChild(thisSong.element).innerHTML;
-    
-    GreenAudioPlayer.init({
-      selector: '.player', // inits Green Audio Player on each audio container that has class "player"
-      stopOthersOnPlay: true
-    });
   }
 }
 
