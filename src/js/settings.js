@@ -11,8 +11,16 @@ export const select = {
     discover: '.discover',
     pages: '#pages',
     categoriesContainer: '.home-category-container',
+    searchFilterContainer: '.search-widget-container',
+    homeSong: '.home > .song-container',
+    searchSong: '.search > .song-container',
     song: '.song-container',
     categoryLink: '.category-link',
+    searchSubmitButton: '.search-btn',
+    searchInput: '#search-input',
+    selectElement: '#categories',
+    songTitle: '.search > .song-container > .song-title > #song-title',
+    songCategories: '.search > .song-container > .song-description > #song-categories',
   },
 
   nav: {

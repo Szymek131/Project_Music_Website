@@ -9,12 +9,12 @@ class CategoryFilterWidget {
 
   widgetListener(){
     const categoriesContainer = document.querySelector(select.containerOf.categoriesContainer);
-    const songElement = document.querySelectorAll(select.containerOf.song);
+    const songElement = document.querySelectorAll(select.containerOf.homeSong);
     const categoryLinks = document.querySelectorAll(select.containerOf.categoryLink);
     categoriesContainer.addEventListener('click', function(event){
       event.preventDefault();
       const id = event.target.getAttribute('id');
-      
+
       if(event.target.classList.contains(classNames.links.categoryLink)){
         for(let element of songElement){
           if(!element.classList.contains(id)){

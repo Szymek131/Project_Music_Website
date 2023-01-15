@@ -3,6 +3,7 @@ import CategoryFilterWidget from './components/CategoryFilterWidget.js';
 import Song from './components/Song.js';
 import Home from './components/Home.js';
 import Search from './components/Search.js';
+import SearchWidget from './components/SearchWidget.js';
 
 
 const app = {
@@ -103,11 +104,9 @@ const app = {
   initSearchSongs: function(){
     const thisApp = this;
     for(let song of thisApp.songs){
-      
-      if(song.title == 'At The Top'){
-        new Song(select.containerOf.search, song);
-      }
+      new Song(select.containerOf.search, song);
     }
+    new SearchWidget();
   },
 
   initDiscoverySongs: function(){
