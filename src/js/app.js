@@ -4,6 +4,7 @@ import Song from './components/Song.js';
 import Home from './components/Home.js';
 import Search from './components/Search.js';
 import SearchWidget from './components/SearchWidget.js';
+import Subscribe from './components/Subscribe.js';
 
 
 const app = {
@@ -90,6 +91,7 @@ const app = {
         thisApp.initSearchSongs();
         thisApp.initDiscoverySongs();
         thisApp.initGreenAudioPlayer();
+        thisApp.initSubscribe();
       });
   },
 
@@ -99,6 +101,10 @@ const app = {
       new Song(select.containerOf.home, song);
     }
     new CategoryFilterWidget();
+  },
+
+  initSubscribe: function(){
+    new Subscribe();
   },
 
   initSearchSongs: function(){

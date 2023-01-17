@@ -3,6 +3,7 @@ export const select = {
     song: '#template-song',
     homeCategoryWidget: '#template-home-category-widget',
     searchWidget: '#template-search-widget',
+    subscribe: '#template-subscribe',
   },
 
   containerOf: {
@@ -55,4 +56,5 @@ export const templates = {
   singleSong: Handlebars.compile(document.querySelector(select.templateOf.song).innerHTML),
   homeCategoryWidget: Handlebars.compile(document.querySelector(select.templateOf.homeCategoryWidget).innerHTML),
   searchWidget: Handlebars.compile(document.querySelector(select.templateOf.searchWidget).innerHTML),
+  subscribe: Handlebars.compile(document.querySelector(select.templateOf.subscribe).innerHTML),
 };

@@ -1,0 +1,222 @@
+.background-container{
+  background-image: url(../../../images/subscribe.jpg);
+  background-size: cover;
+  background-attachment: inherit;
+  background-position-x: center;
+  margin-top: 50px;
+}
+
+.label-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-50%);
+}
+
+.subscribe-label, .subscribe-label-now{
+  color: $color-light;
+  text-transform: uppercase;
+  font-size: 48px;
+  padding: 0 10px;
+  font-family: $font-source;
+}
+
+.subscribe-label-now{
+  font-weight: $font-black;
+  letter-spacing: 0.3em;
+
+}
+
+.subscribe-label{
+  font-weight: $font-semibold;
+  letter-spacing: 0.25em;
+}
+
+.subscribe-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.artist-image{
+  max-width: 350px;
+  padding: 30px;
+}
+
+.artist-name-container{
+  position: absolute;
+  padding-top: 150px;
+}
+.subscribe-button-column{
+  padding-right: 120px;
+}
+
+.artist-firstName, .artist-lastName{
+  font-family: $font-source;
+  font-weight: $font-bold;
+  font-size: 56px;
+  margin: 10px 0;
+  letter-spacing: 0.1em;
+}
+
+.artist-firstName{
+  color: $color-light;
+  transform: translateX(-55%);
+}
+
+.artist-lastName{
+  background: -webkit-linear-gradient(180deg, $color-main 50%, $color-light 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: translateX(-40%);
+}
+
+.subscribe-button{
+  padding: 30px 40px;
+  background-color: $color-main;
+  font-size: 24px;
+  font-weight: $font-semibold;
+  font-family: $font-source;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: $color-light;
+  border: 5px transparent;
+  border-radius: 10px;
+}
+
+.new-album-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 100px;
+  transform: translateX(-10%);
+}
+
+.subscribers-only-label{
+  font-family: $font-source;
+  font-weight: $font-semibold;
+  color: $color-light;
+  font-size: 28px;
+  margin: 0;
+  word-spacing: 0.25em;
+  letter-spacing: 0.1em;
+}
+
+.new-album-label{
+  font-family: $font-source;
+  font-weight: $font-semibold;
+  color: $color-light-grey;
+  font-size: 32px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+@media screen and (max-width: 767px){
+  .subscribe-label, .subscribe-label-now{
+    font-size: 32px;
+  }
+  .subscribe-button-column{
+    padding-right: 0;
+  }
+
+  .artist-container{
+    transform: translateX(20%);
+  }
+
+  .new-album-container{
+    transform: translateX(0);
+    align-items: center;
+  }
+
+  .subscribers-only-label{
+    font-size: 24px;
+    text-transform: none;
+    text-align: center;
+  }
+
+  .new-album-label{
+    font-size: 34px;
+  }
+
+  .subscribe-container{
+    flex-direction: column-reverse;
+  }
+
+  .artist-image{
+    max-width: 300px;
+    padding: 20px;
+  }
+
+  .artist-name-container{
+    padding-top: 130px;
+  }
+
+  .subscribe-button{
+    padding: 30px 40px;
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+
+  .subscribe-artist-column{
+    padding-bottom: 30px;
+  }
+
+  .artist-firstName, .artist-lastName{
+    font-size: 56px;
+  }
+}
+
+@media screen and (max-width: 550px){
+  .subscribe-button-column{
+    padding-right: 0;
+  }
+
+  .artist-container{
+    transform: translateX(20%);
+  }
+
+  .new-album-container{
+    transform: translateX(0);
+    align-items: center;
+  }
+
+  .subscribers-only-label{
+    font-size: 20px;
+    text-transform: none;
+    text-align: center;
+  }
+
+  .new-album-label{
+    font-size: 28px;
+  }
+
+  .subscribe-container{
+    flex-direction: column-reverse;
+  }
+
+  .artist-image{
+    max-width: 250px;
+    padding: 20px;
+  }
+
+  .artist-name-container{
+    padding-top: 130px;
+  }
+
+  .subscribe-button{
+    padding: 20px 30px;
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+
+  .subscribe-artist-column{
+    padding-bottom: 30px;
+  }
+
+  .artist-firstName, .artist-lastName{
+    font-size: 42px;
+  }
+}
