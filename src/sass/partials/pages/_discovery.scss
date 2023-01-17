@@ -1,0 +1,25 @@
+.discover-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.discover-label{
+  font-family: $font-source;
+  font-weight: $font-bold;
+  font-size: 56px;
+  letter-spacing: 0.25em;
+  color: $color-light-grey;
+  padding: 30px;
+  text-transform: uppercase;
+}
+
+.discover-text{
+  font-family: $font-source;
+  font-weight: $font-regular;
+  font-size: 26px;
+  color: $color-light;
+  word-spacing: 0.25em;
+  letter-spacing: 0.1em;
+}

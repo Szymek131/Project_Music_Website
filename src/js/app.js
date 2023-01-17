@@ -6,6 +6,7 @@ import Search from './components/Search.js';
 import SearchWidget from './components/SearchWidget.js';
 import Subscribe from './components/Subscribe.js';
 import Footer from './components/Footer.js';
+import Discover from './components/Discover.js';
 
 
 const app = {
@@ -94,8 +95,8 @@ const app = {
   },
   initDiscovery: function(){
     const thisApp = this;
+    new Discover(select.containerOf.discover);
     new Song(select.containerOf.discover, thisApp.songs[Math.floor(Math.random()*thisApp.songs.length)]);
-
     new Footer(select.containerOf.discover);
   },
 
