@@ -4,6 +4,7 @@ export const select = {
     homeCategoryWidget: '#template-home-category-widget',
     searchWidget: '#template-search-widget',
     subscribe: '#template-subscribe',
+    footer: '#template-footer',
   },
 
   containerOf: {
@@ -57,4 +58,5 @@ export const templates = {
   homeCategoryWidget: Handlebars.compile(document.querySelector(select.templateOf.homeCategoryWidget).innerHTML),
   searchWidget: Handlebars.compile(document.querySelector(select.templateOf.searchWidget).innerHTML),
   subscribe: Handlebars.compile(document.querySelector(select.templateOf.subscribe).innerHTML),
+  footer: Handlebars.compile(document.querySelector(select.templateOf.footer).innerHTML),
 };

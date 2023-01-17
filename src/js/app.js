@@ -5,6 +5,7 @@ import Home from './components/Home.js';
 import Search from './components/Search.js';
 import SearchWidget from './components/SearchWidget.js';
 import Subscribe from './components/Subscribe.js';
+import Footer from './components/Footer.js';
 
 
 const app = {
@@ -87,48 +88,38 @@ const app = {
         }
         thisApp.initHome();
         thisApp.initSearch();
-        thisApp.initHomeSongs();
-        thisApp.initSearchSongs();
-        thisApp.initDiscoverySongs();
+        thisApp.initDiscovery();
         thisApp.initGreenAudioPlayer();
-        thisApp.initSubscribe();
       });
   },
-
-  initHomeSongs: function(){
-    const thisApp = this;
-    for(let song of thisApp.songs){
-      new Song(select.containerOf.home, song);
-    }
-    new CategoryFilterWidget();
-  },
-
-  initSubscribe: function(){
-    new Subscribe();
-  },
-
-  initSearchSongs: function(){
-    const thisApp = this;
-    for(let song of thisApp.songs){
-      new Song(select.containerOf.search, song);
-    }
-    new SearchWidget();
-  },
-
-  initDiscoverySongs: function(){
+  initDiscovery: function(){
     const thisApp = this;
     new Song(select.containerOf.discover, thisApp.songs[Math.floor(Math.random()*thisApp.songs.length)]);
+
+    new Footer(select.containerOf.discover);
   },
 
   initHome: function(){
     const thisApp = this;
     new Home(thisApp.data);
     console.log(thisApp.data);
+    for(let song of thisApp.songs){
+      new Song(select.containerOf.home, song);
+    }
+    new CategoryFilterWidget();
+    new Subscribe();
+    new Footer(select.containerOf.home);
+
   },
 
   initSearch: function(){
     const thisApp = this;
     new Search(thisApp.data);
+    for(let song of thisApp.songs){
+      new Song(select.containerOf.search, song);
+    }
+    new SearchWidget();
+    new Footer(select.containerOf.search);
   },
 
   initGreenAudioPlayer: function(){

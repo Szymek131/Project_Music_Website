@@ -12,10 +12,18 @@
 }
 
 .category-link{
-  color: $color-light;
+  color: #FFF;
+  font-size: 20px;
   padding: 5px;
+  line-height: 2;
 
   &:hover{
     color: $color-main;
+  }
+}
+
+@media screen and (max-width: 767px){
+  .category-link{
+    border: 2px solid $color-light-grey;
   }
 }
