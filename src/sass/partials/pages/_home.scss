@@ -9,6 +9,8 @@
   color: $color-light;
   margin: 0 20px;
   display: block;
+  font-family: $font-source;
+  font-size: 24px;
 }
 
 .category-link{
@@ -16,14 +18,15 @@
   font-size: 20px;
   padding: 5px;
   line-height: 2;
+  font-family: $font-source;
 
   &:hover{
     color: $color-main;
   }
 }
 
-@media screen and (max-width: 767px){
-  .category-link{
-    border: 2px solid $color-light-grey;
+@media screen and (max-width: 425px){
+  .categories-label{
+    font-size: 18px;
   }
 }

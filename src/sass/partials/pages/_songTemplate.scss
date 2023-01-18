@@ -3,6 +3,7 @@
   color: $color-light;
   font-family: $font-source;
   font-weight: $font-semibold;
+  font-size: 26px;
 }
 
 .song-container{
@@ -20,7 +21,7 @@
 }
 
 .song-description > p {
-  font-size: 14px;
+  font-size: 18px;
   margin: 15px 20px;
   font-weight: $font-regular;
   font-family: $font-source;
@@ -42,5 +43,9 @@ audio{
 @media screen and (max-width: 425px){
   .green-audio-player{
     max-width: fit-content;
+  }
+
+  .song-description > p {
+    font-size: 14px;
   }
 }

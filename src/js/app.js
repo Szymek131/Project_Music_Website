@@ -15,9 +15,7 @@ const app = {
     const thisApp = this;
 
     thisApp.pages = document.querySelector(select.containerOf.pages).children;
-    console.log(thisApp.pages);
     thisApp.navLinks = document.querySelectorAll(select.nav.navLinks);
-    console.log(thisApp.navLinks);
 
     const idFromHash = window.location.hash.replace('#/', '');
 
@@ -37,7 +35,6 @@ const app = {
         event.preventDefault();
         const clickedElement = this;
         const id = clickedElement.getAttribute('href').replace('#', '');
-        console.log(id);
         thisApp.activatePage(id);
         window.location.hash = '#/' + id;
       });
@@ -63,7 +60,6 @@ const app = {
     const thisApp = this;
 
     const url = settings.db.url + '/' + settings.db.songs;
-    console.log(url);
 
     thisApp.data = {
       categories: [],
@@ -77,14 +73,12 @@ const app = {
         thisApp.songs = [];
         thisApp.songs = parsedResponse;
         thisApp.data.song = parsedResponse;
-        console.log(thisApp.data);
 
         for(let song of thisApp.songs){
           for(let category of song.categories){
             if(!thisApp.data.categories.includes(category)){
               thisApp.data.categories.push(category);
             }
-            console.log(thisApp.data.categories);
           }
         }
         thisApp.initHome();
@@ -103,7 +97,6 @@ const app = {
   initHome: function(){
     const thisApp = this;
     new Home(thisApp.data);
-    console.log(thisApp.data);
     for(let song of thisApp.songs){
       new Song(select.containerOf.home, song);
     }
