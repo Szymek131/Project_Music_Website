@@ -85,6 +85,13 @@
   color: $color-light;
   border: 5px transparent;
   border-radius: 10px;
+  transition: 1.2s;
+  cursor: pointer;
+
+  &:hover{
+    background-color: $color-light;
+    color: $color-main;
+  }
 }
 
 .new-album-container{
@@ -113,6 +120,10 @@
   font-size: 32px;
   text-transform: uppercase;
   margin: 0;
+}
+
+#subscribe-button-2{
+  display: none;
 }
 
 @media screen and (max-width: 767px){
@@ -183,6 +194,7 @@
   .new-album-container{
     transform: translateX(0);
     align-items: center;
+    padding-bottom: 50px;
   }
 
   .subscribers-only-label{
@@ -220,5 +232,14 @@
 
   .artist-firstName, .artist-lastName{
     font-size: 42px;
+  }
+
+  #subscribe-button-1{
+    display: none;
+  }
+  
+  #subscribe-button-2{
+    display: flex;
+    justify-content: center;
   }
 }
