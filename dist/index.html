@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taste The Music</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/css/green-audio-player.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="header">
+        <div class="header-wrapper">
+          <h1>&nbsp;Taste</h1>
+          <h2>Engage<br>In<br>Art</h2>
+        </div>
+      </div>
+      <div class="main-nav">
+        <a class ="link-home" href="#home">Home</a>
+        <a class ="link-search" href="#search">Search</a>
+        <a class ="link-discovery"href="#discover">Discover</a>
+      </div>
+    </div>
+  </header>
+
+  <div id="pages">
+    <section id="home">
+      <div class="home container"></div>
+    </section>
+    <section id="search">
+      <div class="search container"></div>
+    </section>
+    <section id="discover">
+      <div class="discover container"></div>
+    </section>
+  </div>
+
+  <script id ="template-home-category-widget" type="text/x-handlebars-template">
+    <div class="home-category-container">
+      <div>
+        <h4 class="categories-label">Categories</h4>
+      </div>
+      <div>
+        {{#each categories}}
+        <a class="category-link" id="{{{ this }}}">{{{ this }}}</a> 
+        {{/each}}
+      </div>
+    </div>
+  </script>
+
+  <script id ="template-search-widget" type="text/x-handlebars-template">
+    <div class="search-widget-container">
+        <div class="search-widget-label">
+          <h4 class="search-label">&nbsp;Search</h4>
+        </div>
+        <div class="search-widget-input-container">
+          <div class="search-widget-name">
+            <div class="search-input-label">
+              <p>Name</p>
+            </div>
+            <div class="search-input">
+              <input type="text" maxlength="512" id="search-input">
+            </div>
+          </div>
+          <div class="search-widget-category">
+            <div class="search-select-label">
+              <p>Category</p>
+            </div>
+            <div class="search-select"> 
+              <select name="categories" id="categories" class="categories-select">
+                <option value=""></option>
+                {{#each categories}}
+                <option value="{{ this }}">{{ this }}</option>
+                {{/each}}
+              </select>
+            </div> 
+          </div>
+        </div>
+        <div class="search-submit-container">
+          <button type="submit" class="search-btn">Search</button>
+        </div>
+    </div>
+  </script>
+
+  <script id="template-song" type="text/x-handlebars-template">
+    <div id="song-template" class="song-container {{#each categories}} {{ this }} {{/each}}" author="{{ author }}">
+      <div class="song-title">
+        <h3 id="song-title">{{ title }}</h3>
+      </div>
+      <div class="player">
+        <audio controls autoplay>
+          <source src="./songs/{{ filename }}" type="audio/ogg">
+        </audio>
+      </div>
+      <div class="song-description">
+        <p id="song-categories">Categories: {{#each categories}} {{{this}}} {{/each}}</p>
+        <p>#{{ ranking }} in the ranking</p>
+      </div>
+    </div> 
+  </script>
+
+  <script id="template-subscribe" type="text/x-handlebars-template">
+    <div class="background-container">
+      <div class="label-container">
+        <p class="subscribe-label">Subscribe</p>
+        <p class="subscribe-label-now">Now</p>
+      </div>
+      <div class="subscribe-container">
+        <div class="subscribe-button-column">
+          <button type="button" class="subscribe-button">Join Now</button>
+        </div>
+        <div class="subscribe-artist-column">
+          <div class="artist-container">
+            <div class="artist-name-container">
+              <p class="artist-firstName">Dean</p>
+              <p class="artist-lastName">Henson</p>
+            </div>
+            <div class="artist-image-container">
+              <img class="artist-image" src="./images/artist.jpg" alt="artist-image">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="new-album-container">
+        <p class="new-album-label">New album</p>
+        <p class="subscribers-only-label">Available only for subscribers</p>
+      </div>
+    </div>
+  </script>
+
+  <script id="template-footer" type="text/x-handlebars-template">
+    <div class="footer-container">
+      <p class="footer-label">All rights reserved</p>
+    </div>
+  </script>
+
+  <script id="template-discover" type="text/x-handlebars-template">
+    <div class="discover-container">
+      <h4 class="discover-label">Discover</h4>
+      <p class="discover-text">Give it a try!</p>
+    </div>
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/js/green-audio-player.min.js"></script>
+  <script src="js/app.js" type="module"></script>
+</body>
+</html>
