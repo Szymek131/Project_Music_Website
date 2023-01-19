@@ -24,7 +24,7 @@
       <div class="main-nav">
         <a class ="link-home" href="#home">Home</a>
         <a class ="link-search" href="#search">Search</a>
-        <a class ="link-discovery"href="#discover">Discover</a>
+        <a class ="link-discover"href="#discover">Discover</a>
       </div>
     </div>
   </header>
@@ -89,8 +89,9 @@
   </script>
 
   <script id="template-song" type="text/x-handlebars-template">
-    <div id="song-template" class="song-container {{#each categories}} {{ this }} {{/each}}" author="{{ author }}">
+    <div id="song-template" class="song-container {{#each categories}} {{ this }} {{/each}}">
       <div class="song-title">
+        <h3 id="song-author">{{ author }} - </h3>
         <h3 id="song-title">{{ title }}</h3>
       </div>
       <div class="player">

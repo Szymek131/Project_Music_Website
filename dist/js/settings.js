@@ -23,6 +23,7 @@ export const select = {
     searchInput: '#search-input',
     selectElement: '#categories',
     songTitle: '.search > .song-container > .song-title > #song-title',
+    songAuthor: '.search > .song-container > .song-title > #song-author',
     songCategories: '.search > .song-container > .song-description > #song-categories',
   },
 

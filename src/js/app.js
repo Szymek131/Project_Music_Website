@@ -10,6 +10,10 @@ import Discover from './components/Discover.js';
 
 
 const app = {
+  data: {
+    categories: [],
+    songs: [],
+  },
 
   initPages: function(){
     const thisApp = this;
@@ -61,55 +65,47 @@ const app = {
 
     const url = settings.db.url + '/' + settings.db.songs;
 
-    thisApp.data = {
-      categories: [],
-    };
-    
-    fetch(url)
+    return fetch(url)
       .then(function(rawResponse){
         return rawResponse.json();
       })
       .then(function(parsedResponse){
-        thisApp.songs = [];
-        thisApp.songs = parsedResponse;
-        thisApp.data.song = parsedResponse;
+        thisApp.data.songs = parsedResponse;
 
-        for(let song of thisApp.songs){
+        for(let song of thisApp.data.songs){
           for(let category of song.categories){
-            if(!thisApp.data.categories.includes(category)){
+            const isPresent = thisApp.data.categories.includes(category);
+            
+            if(!isPresent){
               thisApp.data.categories.push(category);
             }
           }
         }
-        thisApp.initHome();
-        thisApp.initSearch();
-        thisApp.initDiscovery();
-        thisApp.initGreenAudioPlayer();
       });
   },
-  initDiscovery: function(){
+
+  initDiscover: function(){
     const thisApp = this;
     new Discover(select.containerOf.discover);
-    new Song(select.containerOf.discover, thisApp.songs[Math.floor(Math.random()*thisApp.songs.length)]);
+    new Song(select.containerOf.discover, thisApp.data.songs[Math.floor(Math.random()*thisApp.data.songs.length)]);
     new Footer(select.containerOf.discover);
   },
 
   initHome: function(){
     const thisApp = this;
     new Home(thisApp.data);
-    for(let song of thisApp.songs){
+    for(let song of thisApp.data.songs){
       new Song(select.containerOf.home, song);
     }
     new CategoryFilterWidget();
     new Subscribe();
     new Footer(select.containerOf.home);
-
   },
 
   initSearch: function(){
     const thisApp = this;
     new Search(thisApp.data);
-    for(let song of thisApp.songs){
+    for(let song of thisApp.data.songs){
       new Song(select.containerOf.search, song);
     }
     new SearchWidget();
@@ -128,7 +124,12 @@ const app = {
     const thisApp = this;
     console.log('App starting');
     thisApp.initPages();
-    thisApp.initSongs();
+    thisApp.initSongs().then(function(){
+      thisApp.initHome();
+      thisApp.initSearch();
+      thisApp.initDiscover();
+      thisApp.initGreenAudioPlayer();
+    });
   },
 };
 

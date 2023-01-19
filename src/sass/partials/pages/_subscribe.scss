@@ -97,10 +97,9 @@
 .new-album-container{
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-end;
   padding-bottom: 100px;
-  transform: translateX(-10%);
+  padding-right: 10%;
 }
 
 .subscribers-only-label{
@@ -126,7 +125,7 @@
   display: none;
 }
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 768px){
   .subscribe-label, .subscribe-label-now{
     font-size: 32px;
   }
@@ -136,11 +135,11 @@
   }
 
   .artist-container{
-    transform: translateX(20%);
+    padding-left: 20%;
   }
 
   .new-album-container{
-    transform: translateX(0);
+    padding-right: 0;
     align-items: center;
   }
 
@@ -188,7 +187,7 @@
   }
 
   .artist-container{
-    transform: translateX(20%);
+    padding-left: 20%;
   }
 
   .new-album-container{

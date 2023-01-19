@@ -1,9 +1,11 @@
 .song-title{
+  display: flex;
+  flex-direction: row;
   text-align: center;
   color: $color-light;
   font-family: $font-source;
   font-weight: $font-semibold;
-  font-size: 26px;
+  font-size: 22px;
 }
 
 .song-container{
@@ -26,6 +28,10 @@
   font-weight: $font-regular;
   font-family: $font-source;
   color: $color-light-grey;
+}
+
+#song-author{
+  padding-right: 10px;
 }
 
 .hidden {

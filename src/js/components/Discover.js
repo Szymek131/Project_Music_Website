@@ -3,18 +3,18 @@ import utils from '../utils.js';
 
 class Discover{
   constructor(element){
-    const thisDiscovery = this;
+    const thisDiscover = this;
 
-    thisDiscovery.render(element);
+    thisDiscover.render(element);
   }
 
   render(element){
-    const thisDiscovery = this;
+    const thisDiscover = this;
 
     const generatedHTML = templates.discover();
-    thisDiscovery.element = utils.createDOMFromHTML(generatedHTML);
+    thisDiscover.element = utils.createDOMFromHTML(generatedHTML);
     const discoveryElement = document.querySelector(element);
-    discoveryElement.appendChild(thisDiscovery.element).innerHTML;
+    discoveryElement.appendChild(thisDiscover.element).innerHTML;
   }
 }
 
