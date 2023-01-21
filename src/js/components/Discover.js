@@ -2,18 +2,18 @@ import { templates } from '../settings.js';
 import utils from '../utils.js';
 
 class Discover{
-  constructor(element){
+  constructor(elementSelector){
     const thisDiscover = this;
 
-    thisDiscover.render(element);
+    thisDiscover.render(elementSelector);
   }
 
-  render(element){
+  render(elementSelector){
     const thisDiscover = this;
 
     const generatedHTML = templates.discover();
     thisDiscover.element = utils.createDOMFromHTML(generatedHTML);
-    const discoveryElement = document.querySelector(element);
+    const discoveryElement = document.querySelector(elementSelector);
     discoveryElement.appendChild(thisDiscover.element).innerHTML;
   }
 }
